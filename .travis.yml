@@ -4,6 +4,7 @@ before_install:
   - sudo apt-get install libao-dev
   - sudo apt-get install libmpg123-dev
 
+matrix:
   include:
     - language: cpp
       compiler:
@@ -11,10 +12,9 @@ before_install:
       script:
         - g++ -O2 -o CppPlay play.c -lao -lmpg123
 
-  include:
     - language: c
       compiler:
         - gcc
       script:
-        - gcc -O2 -o CppPlay play.c -lao -lmpg123
+        - gcc -O2 -o CPlay play.c -lao -lmpg123
         
