@@ -1,0 +1,20 @@
+sudo: required
+os: linux
+before_install:
+  - sudo apt-get install libao-dev
+  - sudo apt-get install libmpg123-dev
+
+  include:
+    - language: cpp
+      compiler:
+        - g++
+      script:
+        - g++ -O2 -o CppPlay play.c -lao -lmpg123
+
+  include:
+    - language: c
+      compiler:
+        - gcc
+      script:
+        - gcc -O2 -o CppPlay play.c -lao -lmpg123
+        
